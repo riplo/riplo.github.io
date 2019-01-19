@@ -60,7 +60,11 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-          />
+          >
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+
+            <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|PT+Serif:400,700" rel="stylesheet" />
+          </Helmet>
         )
       }}
     />
