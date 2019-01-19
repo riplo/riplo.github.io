@@ -16,8 +16,8 @@ const Footer = s.footer`
 
 const Legal = s.p`
   margin-bottom: 0;
-  height: $height;
-  line-height: $height;
+  height: ${HEIGHT};
+  line-height: ${HEIGHT};
   float: right;
 
   ${maxWidth(PHONE)} {
