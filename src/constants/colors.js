@@ -1,6 +1,7 @@
 // Colors
 export const RED = '#ff4c7c'
 export const BLUE = '#5065ff'
+export const DARK_BLUE = '#5264e5'
 export const TRANSPARENT_RED = 'rgba(255, 76, 124, 0.5)'
 
 // Neutrals

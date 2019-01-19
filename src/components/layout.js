@@ -7,7 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 import './layout.css'
 import { SERIF, SANS } from '../constants/fonts'
-import { DARK_GRAY } from '../constants/colors'
+import { DARK_GRAY, BLUE, DARK_BLUE } from '../constants/colors'
 import { maxWidth, PHONE } from '../constants/widths'
 
 const Wrapper = s.div`
@@ -59,6 +59,21 @@ const Wrapper = s.div`
 
   .marg-bot-1 {
     margin-bottom: 1rem !important;
+  }
+
+  .btn {
+    border-radius: 0rem;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 0.75rem;
+    background: ${BLUE};
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: ${DARK_BLUE};
+    }
   }
 
   .space-1 {
