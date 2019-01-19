@@ -83,7 +83,7 @@ const Wrapper = s.div`
   }
 
   section {
-    padding: calc(1.25% + 0.5rem) 0;
+    padding: calc(2.5% + 0.5rem) 0;
   }
 
   ${maxWidth(PHONE)} {

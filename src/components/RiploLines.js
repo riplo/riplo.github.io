@@ -1,9 +1,9 @@
 import s from 'styled-components'
 
-import { LIGHT_GRAY, TRANSPARENT_RED } from '../constants/colors'
+import { WHITE, TRANSPARENT_RED } from '../constants/colors'
 
 export default s.div`
-  background-image: linear-gradient(90deg, ${LIGHT_GRAY} 70%,transparent 70%),linear-gradient(${TRANSPARENT_RED} 15%, ${LIGHT_GRAY} 15%);
+  background-image: linear-gradient(90deg, ${WHITE} 70%,transparent 70%),linear-gradient(${TRANSPARENT_RED} 15%, ${WHITE} 15%);
   background-size: 20px 20px;
   position: absolute;
   z-index: 0;
@@ -12,6 +12,7 @@ export default s.div`
     height: 10rem;
     right: 0;
     width: 40%;
+    margin-top: 5rem;
   `}
 
   ${({ left }) => left && `

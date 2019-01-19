@@ -6,7 +6,7 @@ import { WHITE, BORDER } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
 import Logo from './Logo'
 
-const HEIGHT = '49px'
+const HEIGHT = '55px'
 
 const Nav = s.nav`
   padding-top: 0.5rem;

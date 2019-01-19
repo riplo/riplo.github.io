@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { GRAY, WHITE, BLUE } from '../../../constants/colors'
 import RiploBar from '../../RiploBar'
+import RiploLines from '../../RiploLines'
 
 const Wrapper = s.div`
   margin-top: -5%;
@@ -43,7 +44,7 @@ const Textarea = s.textarea`
 
 export default () => (
   <Wrapper id="contact">
-    <div className="lines right"></div>
+    <RiploLines right />
 
     <div className="container">
       <div className="row">
@@ -114,7 +115,7 @@ export default () => (
       </div>
     </div>
 
-    <div className="lines left"></div>
+    <RiploLines left />
     <div className="space-1"></div>
   </Wrapper>
 )

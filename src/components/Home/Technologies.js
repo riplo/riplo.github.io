@@ -22,6 +22,10 @@ const Container = s.div`
 const ListsWrapper = s.div`
   display: flex;
 
+  h5 {
+    margin-bottom: 1rem;
+  }
+
   ${maxWidth(PHONE)} {
     display: block;
   }
@@ -46,6 +50,10 @@ const List = s.ul`
   padding: 0;
   margin: 0;
   list-style: none;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
 `
 
 export default () => (
