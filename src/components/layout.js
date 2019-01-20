@@ -66,13 +66,17 @@ const Wrapper = s.div`
   }
 
   .btn-primary {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 1rem;
     background: ${BLUE};
 
     &:hover,
     &:focus,
     &:active {
       background: ${DARK_BLUE};
+    }
+
+    ${maxWidth(PHONE)} {
+      padding: 0.5rem 0.75rem;
     }
   }
 

@@ -59,9 +59,9 @@ const Project = ({
     <Wrapper>
       <div className="row">
         <div className="col-12 col-lg-6">
-          <h1 className="serif bold">
+          <h2 className="bold">
             {title}
-          </h1>
+          </h2>
 
           <p>
             {description}

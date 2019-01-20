@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { DARK_GRAY, LIGHT_GRAY } from '../../constants/colors'
 import { PHONE, maxWidth } from '../../constants/widths'
+import { Title } from '../Typography'
 
 const Wrapper = s.section`
   background: ${LIGHT_GRAY};
@@ -61,7 +62,7 @@ export default () => (
     <div className="lines right"></div>
 
     <Container className="container">
-      <h2 className="serif bold center marg-bot-1">Technologies</h2>
+      <Title className="center">Technologies</Title>
 
       <ListsWrapper>
         <ListWrapper>

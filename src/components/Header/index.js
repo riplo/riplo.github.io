@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import s from 'styled-components'
 
-import { WHITE, BORDER } from '../../constants/colors'
+import { WHITE, BORDER, BLACK } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
 import Logo from './Logo'
 
@@ -35,13 +35,19 @@ const Links = s.div`
     height: 2rem;
     line-height: 2rem;
     margin-left: 1rem;
-    color: black;
+    color: ${BLACK};
     opacity: 0.5;
     text-decoration: none;
 
+    &:visited {
+      color: ${BLACK};
+    }
+
     &:hover,
     &:active {
-      opacity: 1;
+      color: ${BLACK};
+      opacity: 0.75;
+      text-decoration: none;
     }
   }
 

@@ -1,14 +1,13 @@
 import React from 'react'
 
+import { Title } from '../../Typography'
 import Project from './Project'
 import projects from './projects'
 
 export default () => (
   <section id="projects">
     <div className="container">
-      <h2 className="serif bold marg-bot-1">
-        Check out our past work
-      </h2>
+      <Title>Check out our past work</Title>
 
       {projects.map(({
         title,

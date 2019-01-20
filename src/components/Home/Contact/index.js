@@ -41,6 +41,7 @@ const Textarea = s.textarea`
 `
 
 // TODO formspree functionality
+// TODO alert and alert styling
 
 export default () => (
   <Wrapper id="contact">

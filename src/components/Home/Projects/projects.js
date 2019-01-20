@@ -1,5 +1,12 @@
 export default [
   {
+    title: 'Orthly',
+    technologies: 'React, Gatsby, Netlify',
+    description: 'Assisted in building a landing page for Orthly: a company who provides invisible aligners to patients for a fraction of the cost of traditional methods like braces or Invisalign.',
+    image: 'orthly.png',
+    link: 'https://orthly.com'
+  },
+  {
     title: 'Nalda',
     technologies: 'React, Redux, Node, MongoDB, Git, Heroku, AWS, SCSS',
     description: 'Web app for a centralized source of information on fun, food, and activities on college campuses. Contributors build out listings, articles, and videos to present content to users in an imersive and direct manner.',

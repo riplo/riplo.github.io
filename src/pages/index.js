@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Home from '../components/Home'
 
 // Todo customize SEO
+// Todo metatag stuff
 
 const IndexPage = () => (
   <Layout>

@@ -2,6 +2,7 @@ import React from 'react'
 import s from 'styled-components'
 
 import AboutImg from './AboutImg'
+import { Title } from '../../Typography'
 import { SERIF } from '../../../constants/fonts'
 import { GRAY, DARK_GRAY } from '../../../constants/colors'
 import { maxWidth, PHONE, TABLET } from '../../../constants/widths'
@@ -26,7 +27,7 @@ const Bullet = s.div`
   }
 `
 
-const Header = s.h2`
+const StyledTitle = s(Title)`
   ${maxWidth(TABLET)} {
     margin-top: 1.25rem;
   }
@@ -41,7 +42,7 @@ export default () => (
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-8 col-lg-9">
-          <Header className="serif bold">More about us</Header>
+          <StyledTitle>More about us</StyledTitle>
           <Bullet>
             <Num>1.</Num>
             <p>
