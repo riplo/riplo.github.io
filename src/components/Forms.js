@@ -22,3 +22,9 @@ export const Input = s.input`
 export const Textarea = s.textarea`
   ${styles}
 `
+
+export const SubmitBtn = s.input`
+  ${({ disabled }) => disabled && `
+    cursor: not-allowed;
+  `}
+`

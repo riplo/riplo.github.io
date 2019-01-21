@@ -6,3 +6,5 @@ export const Title = s.h2`
   font-family: ${SERIF};
   font-weight: bold;
 `
+
+export const Text = s.p``

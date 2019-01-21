@@ -1,3 +1,4 @@
+import React from 'react'
 import s from 'styled-components'
 
 import {
@@ -9,15 +10,19 @@ import {
   RED_BORDER,
 } from '../constants/colors'
 
-import { Text } from './index'
+import { Text } from './Typography'
 
 const Wrapper = s.div`
   width: 100%;
   border-width: 2px;
   border-style: solid;
-  border-radius: 4px;
+  border-radius: 0;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
+
+  p {
+    margin-bottom: 0;
+  }
 `
 
 const ErrorWrapper = s(Wrapper)`

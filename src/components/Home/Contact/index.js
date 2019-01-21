@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import s from 'styled-components'
+import fetch from 'unfetch'
 
 import { GRAY, WHITE } from '../../../constants/colors'
 import RiploBar from '../../RiploBar'
 import RiploLines from '../../RiploLines'
-import { Textarea, Input } from '../../Forms'
+import { Textarea, Input, SubmitBtn } from '../../Forms'
+import { ErrorMessage, SuccessMessage } from '../../Message'
 
 const FORMSPREE_URL = 'https://formspree.io/cameroncabo@gmail.com'
 
@@ -41,13 +43,15 @@ class Contact extends Component {
       lastName: '',
       email: '',
       subject: '',
-      message: '',
+      body: '',
       error: '',
       pending: false,
+      success: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.isDisabled = this.isDisabled.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange (event) {
@@ -59,16 +63,71 @@ class Contact extends Component {
     })
   }
 
+  handleSubmit (e) {
+    e.preventDefault()
+
+    if (this.isDisabled()) {
+      return
+    }
+
+    this.setState({ pending: true })
+
+    const {
+      firstName,
+      lastName,
+      email,
+      subject,
+      body,
+    } = this.state
+
+    const reqBody = {
+      _subject: subject,
+      firstName,
+      lastName,
+      email,
+      subject,
+      body,
+    }
+
+    fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reqBody),
+    })
+      .then(r => r.json())
+      .then(data => {
+        this.setState({
+          pending: false,
+          success: true,
+        })
+
+        console.log(data)
+      })
+      .catch(error => {
+        this.setState({
+          error: error.message || 'Something went wrong. Check the form and try again.',
+          pending: false,
+        })
+      })
+  }
+
   isDisabled () {
     const {
       firstName,
       lastName,
       email,
       subject,
-      message,
+      body,
+      pending,
     } = this.state
 
-    if (!firstName || !lastName || !email || !subject || !message) {
+    if (pending) {
+      return true
+    }
+
+    if (!firstName || !lastName || !email || !subject || !body) {
       return true
     }
 
@@ -88,7 +147,7 @@ class Contact extends Component {
     } else if (subject.length > 500) {
       this.setState({ error: 'Subject is too long' })
       return true
-    } else if (message.length > 10000) {
+    } else if (body.length > 10000) {
       this.setState({ error: 'Message is too long' })
       return true
     }
@@ -102,7 +161,10 @@ class Contact extends Component {
       lastName,
       email,
       subject,
-      message,
+      body,
+      error,
+      success,
+      pending,
     } = this.state
 
     return (
@@ -116,73 +178,81 @@ class Contact extends Component {
 
               <Content>
                 <h2 className="serif bold marg-bot-1">Contact us</h2>
-                <form id="contact-form" action={FORMSPREE_URL} method="POST">
-                  <div id="contact-page-message"></div>
-                  <div className="row">
-                    <div className="col-12 col-md-6">
-                      <Input
-                        type="text"
-                        name="firstName"
-                        id="firstName"
-                        className="form-control"
-                        placeholder="First"
-                        required={true}
-                        value={firstName}
-                        onChange={this.handleChange}
-                      />
+
+                <ErrorMessage message={error} />
+
+                {success ? (
+                  <SuccessMessage message="Your message was sent successfully. We will get back to you as soon as possible." />
+                ) : (
+                  <form id="contact-form" onSubmit={this.handleSubmit}>
+                    <div id="contact-page-message"></div>
+                    <div className="row">
+                      <div className="col-12 col-md-6">
+                        <Input
+                          type="text"
+                          name="firstName"
+                          id="firstName"
+                          className="form-control"
+                          placeholder="First"
+                          required={true}
+                          value={firstName}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div className="col-12 col-md-6">
+                        <Input
+                          type="text"
+                          name="lastName"
+                          className="form-control"
+                          placeholder="Last"
+                          required={true}
+                          value={lastName}
+                          onChange={this.handleChange}
+                        />
+                      </div>
                     </div>
-                    <div className="col-12 col-md-6">
-                      <Input
-                        type="text"
-                        name="lastName"
-                        className="form-control"
-                        placeholder="Last"
-                        required={true}
-                        value={lastName}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </div>
 
-                  <Input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    placeholder="example@gmail.com"
-                    required={true}
-                    value={email}
-                    onChange={this.handleChange}
-                  />
+                    <Input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      placeholder="example@gmail.com"
+                      required={true}
+                      value={email}
+                      onChange={this.handleChange}
+                    />
 
-                  <Input
-                    type="text"
-                    name="subject"
-                    className="form-control"
-                    placeholder="Subject..."
-                    required={true}
-                    value={subject}
-                    onChange={this.handleChange}
-                  />
+                    <Input
+                      type="text"
+                      name="subject"
+                      className="form-control"
+                      placeholder="Subject..."
+                      required={true}
+                      value={subject}
+                      onChange={this.handleChange}
+                    />
 
-                  <Textarea
-                    type="text"
-                    name="body"
-                    className="form-control marg-bot-1"
-                    rows="5"
-                    placeholder="Message..."
-                    required={true}
-                    value={message}
-                    onChange={this.handleChange}
-                  />
+                    <Textarea
+                      type="text"
+                      name="body"
+                      className="form-control marg-bot-1"
+                      rows="5"
+                      placeholder="Message..."
+                      required={true}
+                      value={body}
+                      onChange={this.handleChange}
+                    />
 
-                  <input
-                    type="submit"
-                    name="submit"
-                    value="Send"
-                    className="btn btn-primary"
-                    id="submit-button"
-                  />
-                </form>
+                    <SubmitBtn
+                      type="submit"
+                      name="submit"
+                      value={pending ? 'Sending...' : 'Send'}
+                      className="btn btn-primary"
+                      id="submit-button"
+                      disabled={this.isDisabled()}
+                    />
+                  </form>
+                )}
               </Content>
             </div>
           </div>
