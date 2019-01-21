@@ -66,7 +66,8 @@ const NavSpace = s.div`
   }
 `
 
-//  TODO USER LINKS AND GATSBY IMAGE
+// TODO USER LINKS AND GATSBY IMAGE
+// TODO mobile nav
 
 const Header = () => (
   <>
@@ -75,16 +76,13 @@ const Header = () => (
         <Logo />
 
         <Links>
-          <a href="#nav-space">
+          <a href="/">
             Home
           </a>
-          <a href="#about">
+          <a href="/about">
             About
           </a>
-          <a href="#projects">
-            Projects
-          </a>
-          <a href="#call-to-action">
+          <a href="/#call-to-action">
             Contact
           </a>
         </Links>
