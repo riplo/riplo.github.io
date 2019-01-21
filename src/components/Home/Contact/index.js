@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import s from 'styled-components'
 
-import { GRAY, WHITE, BLUE } from '../../../constants/colors'
+import { GRAY, WHITE } from '../../../constants/colors'
 import RiploBar from '../../RiploBar'
 import RiploLines from '../../RiploLines'
+import { Textarea, Input } from '../../Forms'
+
+const FORMSPREE_URL = 'https://formspree.io/cameroncabo@gmail.com'
 
 const Wrapper = s.div`
   margin-top: -5%;
@@ -19,104 +22,177 @@ const Content = s.div`
   margin-bottom: 1rem;
 `
 
-const styles = `
-  margin-bottom: 1rem !important;
-  border-radius: 0 !important;
-  border-width: 2px !important;
-  font-size: 1rem !important;
-  padding: 0.75rem !important;
+const isValidEmail = email => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ // eslint-disable-line
 
-  &:active,
-  &:focus {
-    border-color: ${BLUE} !important;
-  }
-`
-
-const Input = s.input`
-  ${styles}
-`
-
-const Textarea = s.textarea`
-  ${styles}
-`
+  return re.test(String(email).toLowerCase())
+}
 
 // TODO formspree functionality
 // TODO alert and alert styling
+// TODO RENDER ERROR
 
-export default () => (
-  <Wrapper id="contact">
-    <RiploLines right />
+class Contact extends Component {
+  constructor (props) {
+    super(props)
 
-    <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-          <RiploBar red />
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      subject: '',
+      message: '',
+      error: '',
+      pending: false,
+    }
 
-          <Content>
-            <h2 className="serif bold marg-bot-1">Contact us</h2>
-            <form id="contact-form">
-              <div id="contact-page-message"></div>
-              <div className="row">
-                <div className="col-12 col-md-6">
+    this.handleChange = this.handleChange.bind(this)
+    this.isDisabled = this.isDisabled.bind(this)
+  }
+
+  handleChange (event) {
+    const { target } = event
+    const { name, value } = target
+
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  isDisabled () {
+    const {
+      firstName,
+      lastName,
+      email,
+      subject,
+      message,
+    } = this.state
+
+    if (!firstName || !lastName || !email || !subject || !message) {
+      return true
+    }
+
+    if (!isValidEmail(email)) {
+      return true
+    }
+
+    if (firstName.length > 200) {
+      this.setState({ error: 'First name is too long' })
+      return true
+    } else if (lastName.length > 200) {
+      this.setState({ error: 'Last name is too long' })
+      return true
+    } else if (email.length > 300) {
+      this.setState({ error: 'Email is too long' })
+      return true
+    } else if (subject.length > 500) {
+      this.setState({ error: 'Subject is too long' })
+      return true
+    } else if (message.length > 10000) {
+      this.setState({ error: 'Message is too long' })
+      return true
+    }
+
+    return false
+  }
+
+  render () {
+    const {
+      firstName,
+      lastName,
+      email,
+      subject,
+      message,
+    } = this.state
+
+    return (
+      <Wrapper id="contact">
+        <RiploLines right />
+
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+              <RiploBar red />
+
+              <Content>
+                <h2 className="serif bold marg-bot-1">Contact us</h2>
+                <form id="contact-form" action={FORMSPREE_URL} method="POST">
+                  <div id="contact-page-message"></div>
+                  <div className="row">
+                    <div className="col-12 col-md-6">
+                      <Input
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        className="form-control"
+                        placeholder="First"
+                        required={true}
+                        value={firstName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="col-12 col-md-6">
+                      <Input
+                        type="text"
+                        name="lastName"
+                        className="form-control"
+                        placeholder="Last"
+                        required={true}
+                        value={lastName}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <Input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="example@gmail.com"
+                    required={true}
+                    value={email}
+                    onChange={this.handleChange}
+                  />
+
                   <Input
                     type="text"
-                    name="firstName"
-                    id="firstName"
+                    name="subject"
                     className="form-control"
-                    placeholder="First"
+                    placeholder="Subject..."
                     required={true}
+                    value={subject}
+                    onChange={this.handleChange}
                   />
-                </div>
-                <div className="col-12 col-md-6">
-                  <Input
+
+                  <Textarea
                     type="text"
-                    name="lastName"
-                    className="form-control"
-                    placeholder="Last"
+                    name="body"
+                    className="form-control marg-bot-1"
+                    rows="5"
+                    placeholder="Message..."
                     required={true}
+                    value={message}
+                    onChange={this.handleChange}
                   />
-                </div>
-              </div>
 
-              <Input
-                type="email"
-                name="email"
-                className="form-control"
-                placeholder="example@gmail.com"
-                required={true}
-              />
-
-              <Input
-                type="text"
-                name="subject"
-                className="form-control"
-                placeholder="Subject..."
-                required={true}
-              />
-
-              <Textarea
-                type="text"
-                name="body"
-                className="form-control marg-bot-1"
-                rows="5"
-                placeholder="Message..."
-                required={true}
-              />
-
-              <input
-                type="submit"
-                name="submit"
-                value="Send"
-                className="btn btn-primary"
-                id="submit-button"
-              />
-            </form>
-          </Content>
+                  <input
+                    type="submit"
+                    name="submit"
+                    value="Send"
+                    className="btn btn-primary"
+                    id="submit-button"
+                  />
+                </form>
+              </Content>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <RiploLines left />
-    <div className="space-1"></div>
-  </Wrapper>
-)
+        <RiploLines left />
+        <div className="space-1"></div>
+      </Wrapper>
+    )
+  }
+}
+
+export default Contact

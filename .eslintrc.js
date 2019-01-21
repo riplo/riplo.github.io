@@ -11,9 +11,9 @@ module.exports = {
       {
         objects: "only-multiline",
         arrays: "only-multiline",
-        imports: "never",
-        exports: "never",
-        functions: "never",
+        imports: "only-multiline",
+        exports: "only-multiline",
+        functions: "only-multiline",
       },
     ],
 

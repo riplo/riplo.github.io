@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import s from 'styled-components'
 
+// TODO favicon
+
 import Header from './Header'
 import Footer from './Footer'
 import './layout.css'
