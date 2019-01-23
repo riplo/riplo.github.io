@@ -4,6 +4,7 @@ import s from 'styled-components'
 
 import { WHITE, BORDER, BLACK } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
+import { Container } from '../Grid'
 import Logo from './Logo'
 
 const HEIGHT = '55px'
@@ -22,7 +23,7 @@ const Nav = s.nav`
   }
 `
 
-const Container = s.div`
+const StyledContainer = s(Container)`
   display: flex;
   flex-direction: row;
 `
@@ -72,7 +73,7 @@ const NavSpace = s.div`
 const Header = () => (
   <>
     <Nav>
-      <Container className="container">
+      <StyledContainer>
         <Logo />
 
         <Links>
@@ -86,7 +87,7 @@ const Header = () => (
             Contact
           </a>
         </Links>
-      </Container>
+      </StyledContainer>
     </Nav>
 
     <NavSpace />

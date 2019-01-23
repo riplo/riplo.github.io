@@ -7,6 +7,7 @@ import RiploBar from '../../RiploBar'
 import RiploLines from '../../RiploLines'
 import { Textarea, Input, SubmitBtn } from '../../Forms'
 import { ErrorMessage, SuccessMessage } from '../../Message'
+import { Container } from '../../Grid'
 
 const FORMSPREE_URL = 'https://formspree.io/cameroncabo@gmail.com'
 
@@ -171,7 +172,7 @@ class Contact extends Component {
       <Wrapper id="contact">
         <RiploLines right />
 
-        <div className="container">
+        <Container>
           <div className="row">
             <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
               <RiploBar red />
@@ -256,7 +257,7 @@ class Contact extends Component {
               </Content>
             </div>
           </div>
-        </div>
+        </Container>
 
         <RiploLines left />
         <div className="space-1"></div>

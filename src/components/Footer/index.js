@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { GRAY, DARK_GRAY } from '../../constants/colors'
 import { PHONE, maxWidth } from '../../constants/widths'
+import { Container } from '../Grid'
 import Logo from './Logo'
 
 const HEIGHT = '1.5rem'
@@ -40,7 +41,7 @@ const ToTop = s.a`
 
 export default () => (
   <Footer>
-    <div className="container">
+    <Container>
       <Logo />
 
       <Legal>
@@ -50,6 +51,6 @@ export default () => (
       <ToTop href="#nav-space">
         Back to top &uarr;
       </ToTop>
-    </div>
+    </Container>
   </Footer>
-);
+)

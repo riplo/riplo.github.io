@@ -7,4 +7,9 @@ export const Title = s.h2`
   font-weight: bold;
 `
 
+export const Header = s.h2`
+  font-weight: bold;
+  margin-bottom: 1rem;
+`
+
 export const Text = s.p``

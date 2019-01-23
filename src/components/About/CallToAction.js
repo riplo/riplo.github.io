@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { LIGHT_GRAY } from '../../constants/colors'
 import { Title } from '../Typography'
+import { Container } from '../Grid'
 import Arrow from '../Arrow'
 
 const Wrapper = s.div`
@@ -14,7 +15,7 @@ const Wrapper = s.div`
 `
 
 export default () => (
-  <div className="container">
+  <Container>
     <Wrapper>
       <Title>Our mission</Title>
 
@@ -26,5 +27,5 @@ export default () => (
         TODO <Arrow />
       </span>
     </Wrapper>
-  </div>
+  </Container>
 )

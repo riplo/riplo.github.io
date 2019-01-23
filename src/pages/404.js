@@ -4,9 +4,10 @@ import s from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import { Container } from '../components/Grid'
 import { Title } from '../components/Typography'
 
-const Wrapper = s.div`
+const StyledContainer = s(Container)`
   padding-top: 1rem;
   padding-bottom: 1.5rem;
   min-height: calc(100vh - 120px);
@@ -15,7 +16,7 @@ const Wrapper = s.div`
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404 Not Found" />
-    <Wrapper className="container">
+    <StyledContainer>
       <div className="row">
         <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
           <Title>404 page not found!</Title>
@@ -25,7 +26,7 @@ const NotFoundPage = () => (
           </Link>
         </div>
       </div>
-    </Wrapper>
+    </StyledContainer>
   </Layout>
 )
 

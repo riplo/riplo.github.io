@@ -6,6 +6,7 @@ import s from 'styled-components'
 import { Title } from '../Typography'
 import { BLUE, RED } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
+import { Container } from '../Grid'
 
 const FounderRow = s.div`
   margin-top: 2rem;
@@ -63,7 +64,7 @@ const Founder = ({ image, name, children }) => (
 
 export default () => (
   <section>
-    <div className="container">
+    <Container>
       <Title>Our founders</Title>
 
       <StaticQuery
@@ -113,6 +114,6 @@ export default () => (
           </>
         )}
       />
-    </div>
+    </Container>
   </section>
 )

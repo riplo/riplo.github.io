@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { DARK_GRAY, LIGHT_GRAY } from '../../constants/colors'
 import { PHONE, maxWidth } from '../../constants/widths'
+import { Container } from '../Grid'
 import { Title } from '../Typography'
 
 const Wrapper = s.section`
@@ -13,7 +14,7 @@ const Wrapper = s.section`
   }
 `
 
-const Container = s.div`
+const StyledContainer = s(Container)`
   ${maxWidth(PHONE)} {
     z-index: 1;
     position: relative;
@@ -61,7 +62,7 @@ export default () => (
   <Wrapper id="technologies">
     <div className="lines right"></div>
 
-    <Container className="container">
+    <StyledContainer>
       <Title className="center">Technologies</Title>
 
       <ListsWrapper>
@@ -92,7 +93,7 @@ export default () => (
           </List>
         </ListWrapper>
       </ListsWrapper>
-    </Container>
+    </StyledContainer>
 
     <div className="lines left"></div>
   </Wrapper>

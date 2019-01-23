@@ -3,13 +3,14 @@ import s from 'styled-components'
 
 import img from '../../images/computer.jpg'
 import Banner from '../Banner'
+import { Container } from '../Grid'
 import { maxWidth, PHONE, TABLET } from '../../constants/widths'
 
-const Container = s.div`
+const StyledContainer = s(Container)`
   ${maxWidth(TABLET)} {
     padding-bottom: 1rem;
   }
-  
+
   ${maxWidth(PHONE)} {
     padding-bottom: 1.5rem;
   }
@@ -17,7 +18,7 @@ const Container = s.div`
 
 export default () => (
   <Banner id="hero" style={{ backgroundImage: `url(${img})` }}>
-    <Container className="container">
+    <StyledContainer>
       <h1 className="serif center bold">
         We are a driven group of student developers
       </h1>
@@ -27,6 +28,6 @@ export default () => (
         <br />
         Want something built? We'd love to help.
       </p>
-    </Container>
+    </StyledContainer>
   </Banner>
 )

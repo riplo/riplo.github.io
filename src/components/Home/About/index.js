@@ -6,6 +6,7 @@ import { Title } from '../../Typography'
 import { SERIF } from '../../../constants/fonts'
 import { GRAY, DARK_GRAY } from '../../../constants/colors'
 import { maxWidth, PHONE, TABLET } from '../../../constants/widths'
+import { Container } from '../../Grid'
 
 const Num = s.div`
   font-size: 2rem;
@@ -39,7 +40,7 @@ const StyledTitle = s(Title)`
 
 export default () => (
   <section id="about">
-    <div className="container">
+    <Container>
       <div className="row">
         <div className="col-12 col-md-8 col-lg-9">
           <StyledTitle>More about us</StyledTitle>
@@ -74,6 +75,6 @@ export default () => (
           <AboutImg />
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 )

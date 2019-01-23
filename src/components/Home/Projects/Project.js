@@ -3,6 +3,7 @@ import s from 'styled-components'
 
 import { LIGHT_GRAY, SHADE, WHITE, BORDER } from '../../../constants/colors'
 import { maxWidth, PHONE } from '../../../constants/widths'
+import { Header } from '../../Typography'
 
 // TODO use gatsby image here
 
@@ -59,9 +60,9 @@ const Project = ({
     <Wrapper>
       <div className="row">
         <div className="col-12 col-lg-6">
-          <h2 className="bold">
+          <Header>
             {title}
-          </h2>
+          </Header>
 
           <p>
             {description}

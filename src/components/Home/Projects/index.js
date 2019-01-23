@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { Title } from '../../Typography'
+import { Container } from '../../Grid'
 import Project from './Project'
 import projects from './projects'
 
 export default () => (
   <section id="projects">
-    <div className="container">
+    <Container>
       <Title>Check out our past work</Title>
 
       {projects.map(({
@@ -27,6 +28,6 @@ export default () => (
       ))}
 
       {/* TODO projects */}
-    </div>
+    </Container>
   </section>
 )
