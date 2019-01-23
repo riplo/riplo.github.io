@@ -6,7 +6,7 @@ import About from './About'
 import Technologies from './Technologies'
 import Projects from './Projects'
 import CallToAction from './CallToAction'
-import Contact from './Contact'
+import ContactForm from './ContactForm'
 import RiploBar from '../RiploBar'
 
 export default () => (
@@ -23,7 +23,7 @@ export default () => (
 
     <Projects />
     <CallToAction />
-    <Contact />
+    <ContactForm />
   </>
 )
 

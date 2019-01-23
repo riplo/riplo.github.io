@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import s from 'styled-components'
 
 // TODO favicon
+// TODO write about each project in its own page
+// TODO move away from bootstrap
 
 import Header from './Header'
+import ContactModal from './ContactModal'
 import Footer from './Footer'
 import './layout.css'
 import { SERIF, SANS } from '../constants/fonts'
@@ -99,28 +101,39 @@ const Wrapper = s.div`
   }
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
+class Layout extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = { contactModalActive: false }
+    this.toggleContactModal = this.toggleContactModal.bind(this)
+  }
+
+  toggleContactModal () {
+    const { contactModalActive } = this.state
+    this.setState({ contactModalActive: !contactModalActive })
+  }
+
+  render () {
+    const { children } = this.props
+    const { contactModalActive } = this.state
+
+    return (
       <Wrapper>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header toggleContactModal={this.toggleContactModal} />
+
+        <ContactModal
+          show={contactModalActive}
+          toggle={this.toggleContactModal}
+        />
 
         {children}
 
         <Footer />
       </Wrapper>
-    )}
-  />
-)
+    )
+  }
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -39,6 +39,7 @@ const Links = s.div`
     color: ${BLACK};
     opacity: 0.5;
     text-decoration: none;
+    cursor: pointer;
 
     &:visited {
       color: ${BLACK};
@@ -70,7 +71,7 @@ const NavSpace = s.div`
 // TODO USER LINKS AND GATSBY IMAGE
 // TODO mobile nav
 
-const Header = () => (
+const Header = ({ toggleContactModal }) => (
   <>
     <Nav>
       <StyledContainer>
@@ -83,7 +84,7 @@ const Header = () => (
           <a href="/about">
             About
           </a>
-          <a href="/#call-to-action">
+          <a onClick={toggleContactModal}>
             Contact
           </a>
         </Links>
