@@ -4,8 +4,6 @@ import s from 'styled-components'
 import { maxWidth, PHONE } from '../../constants/widths'
 import { BLACK } from '../../constants/colors'
 
-// TODO links on mobile
-
 const Links = s.div`
   flex: 1;
   text-align: right;

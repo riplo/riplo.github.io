@@ -26,8 +26,6 @@ export default () => (
           link={link}
         />
       ))}
-
-      {/* TODO projects */}
     </Container>
   </section>
 )
