@@ -4,7 +4,7 @@ import s from 'styled-components'
 
 // TODO favicon
 // TODO write about each project in its own page
-// TODO move away from bootstrap
+// TODO get rid of bootstrap
 
 import Header from './Header'
 import ContactModal from './ContactModal'

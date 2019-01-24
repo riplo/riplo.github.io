@@ -1,13 +1,15 @@
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import React from 'react'
 import s from 'styled-components'
 
-import { WHITE, BORDER, BLACK } from '../../constants/colors'
+import { WHITE, BORDER } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
 import { Container } from '../Grid'
 import Logo from './Logo'
+import Bars from './Bars'
+import Links from './Links'
 
-const HEIGHT = '55px'
+const HEIGHT = '54px'
 
 const Nav = s.nav`
   padding-top: 0.5rem;
@@ -17,44 +19,15 @@ const Nav = s.nav`
   z-index: 1000;
   width: 100%;
   background: ${WHITE};
-
-  ${maxWidth(PHONE)} {
-    position: relative;
-  }
+  min-height: ${HEIGHT};
 `
 
 const StyledContainer = s(Container)`
   display: flex;
   flex-direction: row;
-`
-
-const Links = s.div`
-  flex: 1;
-  text-align: right;
-
-  a {
-    height: 2rem;
-    line-height: 2rem;
-    margin-left: 1rem;
-    color: ${BLACK};
-    opacity: 0.5;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:visited {
-      color: ${BLACK};
-    }
-
-    &:hover,
-    &:active {
-      color: ${BLACK};
-      opacity: 0.75;
-      text-decoration: none;
-    }
-  }
 
   ${maxWidth(PHONE)} {
-    display: none;
+    display: block;
   }
 `
 
@@ -62,45 +35,47 @@ const NavSpace = s.div`
   height: ${HEIGHT};
   width: 100%;
   display: block;
-
-  ${maxWidth(PHONE)} {
-    display: none;
-  }
 `
 
-// TODO USER LINKS AND GATSBY IMAGE
-// TODO mobile nav
+class Header extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { active: false }
+    this.toggle = this.toggle.bind(this)
+  }
 
-const Header = ({ toggleContactModal }) => (
-  <>
-    <Nav>
-      <StyledContainer>
-        <Logo />
+  toggle () {
+    const { active } = this.state
+    this.setState({ active: !active })
+  }
 
-        <Links>
-          <a href="/">
-            Home
-          </a>
-          <a href="/about">
-            About
-          </a>
-          <a onClick={toggleContactModal}>
-            Contact
-          </a>
-        </Links>
-      </StyledContainer>
-    </Nav>
+  render () {
+    const { toggleContactModal } = this.props
+    const { active } = this.state
 
-    <NavSpace />
-  </>
-)
+    return (
+      <>
+        <Nav>
+          <StyledContainer>
+            <Logo />
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+            <Bars handleClick={this.toggle} />
+
+            <Links
+              toggleContactModal={toggleContactModal}
+              active={active}
+            />
+          </StyledContainer>
+        </Nav>
+
+        <NavSpace />
+      </>
+    )
+  }
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+Header.propTypes = {
+  toggleContactModal: PropTypes.func.isRequired,
 }
 
 export default Header

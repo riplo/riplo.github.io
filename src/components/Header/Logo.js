@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 const Wrapper = s.div`
-  width: 5rem;
+  width: 90px;
   display: block;
 `
 
