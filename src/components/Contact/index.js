@@ -158,7 +158,6 @@ class Contact extends Component {
                   type="text"
                   name="firstName"
                   id="firstName"
-                  className="form-control"
                   placeholder="First"
                   required={true}
                   value={firstName}
@@ -169,7 +168,6 @@ class Contact extends Component {
                 <Input
                   type="text"
                   name="lastName"
-                  className="form-control"
                   placeholder="Last"
                   required={true}
                   value={lastName}
@@ -181,7 +179,6 @@ class Contact extends Component {
             <Input
               type="email"
               name="email"
-              className="form-control"
               placeholder="example@gmail.com"
               required={true}
               value={email}
@@ -191,7 +188,6 @@ class Contact extends Component {
             <Input
               type="text"
               name="subject"
-              className="form-control"
               placeholder="Subject..."
               required={true}
               value={subject}
@@ -201,7 +197,6 @@ class Contact extends Component {
             <Textarea
               type="text"
               name="body"
-              className="form-control marg-bot-1"
               rows="5"
               placeholder="Message..."
               required={true}
@@ -213,7 +208,6 @@ class Contact extends Component {
               type="submit"
               name="submit"
               value={pending ? 'Sending...' : 'Send'}
-              className="btn btn-primary"
               id="submit-button"
               disabled={this.isDisabled()}
             />

@@ -71,7 +71,7 @@ export default () => (
             </p>
           </Bullet>
         </div>
-        <div className="d-none d-md-block col-md-4 col-lg-3">
+        <div className="col-4 offset-4 offset-md-0 col-md-4 col-lg-3">
           <AboutImg />
         </div>
       </div>

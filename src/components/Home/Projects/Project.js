@@ -4,6 +4,7 @@ import s from 'styled-components'
 import { LIGHT_GRAY, SHADE, WHITE, BORDER } from '../../../constants/colors'
 import { maxWidth, PHONE } from '../../../constants/widths'
 import { Header } from '../../Typography'
+import { BtnAnchor } from '../../Btn'
 
 // TODO use gatsby image here
 
@@ -74,9 +75,9 @@ const Project = ({
           </p>
 
           {link && (
-            <a href={link} className="btn btn-primary" target="_BLANK">
+            <BtnAnchor href={link} target="_BLANK">
               View here
-            </a>
+            </BtnAnchor>
           )}
         </div>
         <ImgWrapper className="col-12 col-lg-6">

@@ -3,7 +3,7 @@ import s from 'styled-components'
 
 import RiploBar from '../RiploBar'
 import RiploLines from '../RiploLines'
-import { Container } from '../Grid'
+import { Spacer, Container } from '../Grid'
 import { Title } from '../Typography'
 import Contact from '../Contact'
 
@@ -42,6 +42,6 @@ export default () => (
     </Container>
 
     <RiploLines left />
-    <div className="space-1"></div>
+    <Spacer />
   </Wrapper>
 )

@@ -4,7 +4,7 @@ import s from 'styled-components'
 import { DARK_GRAY, LIGHT_GRAY } from '../../constants/colors'
 import { PHONE, maxWidth } from '../../constants/widths'
 import { Container } from '../Grid'
-import { Title } from '../Typography'
+import { Title, Subtitle } from '../Typography'
 
 const Wrapper = s.section`
   background: ${LIGHT_GRAY};
@@ -60,14 +60,12 @@ const List = s.ul`
 
 export default () => (
   <Wrapper id="technologies">
-    <div className="lines right"></div>
-
     <StyledContainer>
-      <Title className="center">Technologies</Title>
+      <Title center>Technologies</Title>
 
       <ListsWrapper>
         <ListWrapper>
-          <h5 className="bold">Web</h5>
+          <Subtitle>Web</Subtitle>
           <List>
             <li>HTML/CSS/SCSS</li>
             <li>React/Redux</li>
@@ -76,7 +74,7 @@ export default () => (
         </ListWrapper>
 
         <ListWrapper>
-          <h5 className="bold">Mobile</h5>
+          <Subtitle>Mobile</Subtitle>
           <List>
             <li>React Native</li>
             <li>Firebase</li>
@@ -85,7 +83,7 @@ export default () => (
         </ListWrapper>
 
         <ListWrapper>
-          <h5 className="bold">Everywhere</h5>
+          <Subtitle>Everywhere</Subtitle>
           <List>
             <li>JavaScript, Node, Express</li>
             <li>MongoDB, PostgreSQL</li>
@@ -94,7 +92,5 @@ export default () => (
         </ListWrapper>
       </ListsWrapper>
     </StyledContainer>
-
-    <div className="lines left"></div>
   </Wrapper>
 )

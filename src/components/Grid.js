@@ -15,3 +15,9 @@ export const Container = s.div`
     padding: 0 calc(1rem + 5%);
   }
 `
+
+export const Spacer = s.div`
+  display: block;
+  width: 100%;
+  height: 1rem;
+`
