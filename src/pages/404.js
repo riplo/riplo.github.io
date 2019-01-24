@@ -19,9 +19,9 @@ const NotFoundPage = () => (
     <StyledContainer>
       <Row>
         <Col sm={12} offsetMd={2} md={8} lg={6} offsetLg={3}>
-          <Title>404 page not found!</Title>
-          <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-          <BtnLink>
+          <Title>404: page not found!</Title>
+          <p>You just hit a route that doesn&#39;t exist &#9785;. Check the URL and make sure you typed correctly.</p>
+          <BtnLink to="/">
             Back to home
           </BtnLink>
         </Col>
