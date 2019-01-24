@@ -55,45 +55,39 @@ const Project = ({
   description,
   image,
   link,
-}) => {
-  // const img = require(`../../../images/projects/${image}`)
+}) => (
+  <Wrapper>
+    <Row>
+      <Col>
+        <Header>
+          {title}
+        </Header>
 
-  console.log(image)
+        <p>
+          {description}
+        </p>
 
-  return (
-    <Wrapper>
-      <Row>
-        <Col>
-          <Header>
-            {title}
-          </Header>
+        <p>
+          <strong>Technologies:&nbsp;</strong>
+          {technologies}
+        </p>
 
-          <p>
-            {description}
-          </p>
+        {link && (
+          <BtnAnchor href={link} target="_BLANK">
+            View here
+          </BtnAnchor>
+        )}
+      </Col>
 
-          <p>
-            <strong>Technologies:&nbsp;</strong>
-            {technologies}
-          </p>
+      <ColSpace />
 
-          {link && (
-            <BtnAnchor href={link} target="_BLANK">
-              View here
-            </BtnAnchor>
-          )}
-        </Col>
-
-        <ColSpace />
-
-        <FlexImgWrapper>
-          <ImgWrapper>
-            <Img fluid={image.src.childImageSharp.fluid} />
-          </ImgWrapper>
-        </FlexImgWrapper>
-      </Row>
-    </Wrapper>
-  )
-}
+      <FlexImgWrapper>
+        <ImgWrapper>
+          <Img fluid={image.src.childImageSharp.fluid} />
+        </ImgWrapper>
+      </FlexImgWrapper>
+    </Row>
+  </Wrapper>
+)
 
 export default Project

@@ -1,31 +1,32 @@
 import React from 'react'
 import s from 'styled-components'
-import Img from 'gatsby-image'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
-const Wrapper = s.div`
-  width: 90px;
+import logo from '../../images/riplo.svg'
+import { BLACK } from '../../constants/colors'
+
+const StyledLink = s(Link)`
+  text-decoration: none !important;
+  color: ${BLACK};
+  font-weight: bold;
+  display: flex;
+`
+
+const Img = s.img`
+  height: 2rem;
+  width: auto;
   display: block;
-  margin-right: 0;
+  margin-right: 0.55rem;
+`
+
+const LogoText = s.span`
+  margin-top: 0.35rem;
+  font-size: 1.2rem;
 `
 
 export default () => (
-  <Link to="/">
-    <Wrapper>
-      <StaticQuery
-        query={graphql`
-          query {
-            placeholderImage: file(relativePath: { eq: "riplo.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        `}
-        render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
-      />
-    </Wrapper>
-  </Link>
+  <StyledLink to="/">
+    <Img src={logo} alt="Riplo" />
+    <LogoText>Riplo</LogoText>
+  </StyledLink>
 )

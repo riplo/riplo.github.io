@@ -13,6 +13,7 @@ const Num = s.div`
   font-family: ${SERIF};
   font-weight: bold;
   margin-right: 1rem;
+  margin-top: 0.25rem;
   padding-right: 1rem;
   color: ${DARK_GRAY};
   border-right: 2px dashed ${GRAY};
@@ -23,8 +24,7 @@ const Bullet = s.div`
   flex-direction: row;
 
   p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 `
 
