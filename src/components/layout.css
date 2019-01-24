@@ -282,7 +282,6 @@ h4 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
-  line-height: 1.1;
 }
 h5 {
   margin-left: 0;
@@ -299,7 +298,6 @@ h5 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
-  line-height: 1.1;
 }
 h6 {
   margin-left: 0;
@@ -316,7 +314,6 @@ h6 {
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
-  line-height: 1.1;
 }
 hgroup {
   margin-left: 0;
@@ -615,4 +612,16 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+
+p {
+  line-height: 1.5;
 }

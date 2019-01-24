@@ -6,9 +6,9 @@ import s from 'styled-components'
 import { Title } from '../Typography'
 import { BLUE, RED } from '../../constants/colors'
 import { maxWidth, PHONE } from '../../constants/widths'
-import { Container } from '../Grid'
+import { Container, Row, Col, ColSpace } from '../Grid'
 
-const FounderRow = s.div`
+const FounderRow = s(Row)`
   margin-top: 2rem;
 
   img {
@@ -46,19 +46,21 @@ const RedRect = s(Rect)`
 `
 
 const Founder = ({ image, name, children }) => (
-  <FounderRow className="row">
-    <div className="col-6 col-md-3 col-lg-2">
+  <FounderRow>
+    <Col sm={6} md={3} lg={2}>
       <Wrapper>
         <BlueRect />
         <Img fluid={image} />
         <RedRect />
       </Wrapper>
-    </div>
+    </Col>
 
-    <div className="col-12 col-md-9 col-lg-10">
+    <ColSpace width="2rem" />
+
+    <Col>
       <h4>{name}</h4>
       {children}
-    </div>
+    </Col>
   </FounderRow>
 )
 

@@ -3,7 +3,7 @@ import s from 'styled-components'
 
 import RiploBar from '../RiploBar'
 import RiploLines from '../RiploLines'
-import { Spacer, Container } from '../Grid'
+import { Spacer, Container, Row, Col } from '../Grid'
 import { Title } from '../Typography'
 import Contact from '../Contact'
 
@@ -28,8 +28,8 @@ export default () => (
     <RiploLines right />
 
     <Container>
-      <div className="row">
-        <div className="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <Row>
+        <Col sm={12} md={8} offsetMd={2} lg={6} offsetLg={3}>
           <RiploBar red />
 
           <Content>
@@ -37,8 +37,8 @@ export default () => (
 
             <Contact />
           </Content>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
 
     <RiploLines left />

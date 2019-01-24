@@ -5,11 +5,10 @@ import { minWidth, PHONE } from '../../constants/widths'
 import { BLACK } from '../../constants/colors'
 
 const Wrapper = s.div`
-  width: 16px;
-  padding-top: 10px;
+  padding: 10px 1rem;
   cursor: pointer;
   position: absolute;
-  right: 1rem;
+  right: 0;
   top: 0.5rem;
 
   &:hover {

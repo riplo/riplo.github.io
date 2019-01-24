@@ -4,11 +4,23 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import About from '../components/About'
 
-// TOOD SEO
-
 const IndexPage = () => (
   <Layout>
-    <SEO title="About" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="About Us"
+      keywords={[
+        'riplo',
+        'about',
+        'cameron',
+        'cabo',
+        'adam',
+        'ripley',
+        'dev',
+        'learn',
+        'school',
+      ]}
+      description="Learn more about Riplo: an experienced, student-run web and mobile development studio"
+    />
 
     <About />
   </Layout>

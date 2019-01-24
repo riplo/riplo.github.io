@@ -6,6 +6,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 const Wrapper = s.div`
   width: 90px;
   display: block;
+  margin-right: 0;
 `
 
 export default () => (

@@ -1,12 +1,12 @@
 import React from 'react'
 import s from 'styled-components'
+import Img from 'gatsby-image'
 
 import { LIGHT_GRAY, SHADE, WHITE, BORDER } from '../../../constants/colors'
 import { maxWidth, PHONE } from '../../../constants/widths'
 import { Header } from '../../Typography'
 import { BtnAnchor } from '../../Btn'
-
-// TODO use gatsby image here
+import { Col, Row, ColSpace } from '../../Grid'
 
 const Wrapper = s.div`
   background: ${LIGHT_GRAY};
@@ -30,21 +30,22 @@ const Wrapper = s.div`
   }
 `
 
-const ImgWrapper = s.div`
+const FlexImgWrapper = s(Col)`
   display: flex;
   align-items: flex-end;
   flex-direction: row;
+`
 
-  img {
-    border-right: 1px solid ${SHADE};
-    border-left: 1px solid ${SHADE};
-    border-top: 1px solid ${SHADE};
-    box-shadow: 0rem -0.125rem 0.75rem rgba(0, 0, 0, 0.15);
+const ImgWrapper = s.div`
+  border-right: 1px solid ${SHADE};
+  border-left: 1px solid ${SHADE};
+  border-top: 1px solid ${SHADE};
+  box-shadow: 0rem -0.125rem 0.75rem rgba(0, 0, 0, 0.15);
+  width: 100%;
 
-    ${maxWidth(PHONE)} {
-      border: 1px solid ${SHADE};
-      box-shadow: 0rem 2px 16px rgba(0, 0, 0, 0.15);
-    }
+  ${maxWidth(PHONE)} {
+    border: 1px solid ${SHADE};
+    box-shadow: 0rem 2px 16px rgba(0, 0, 0, 0.15);
   }
 `
 
@@ -55,12 +56,14 @@ const Project = ({
   image,
   link,
 }) => {
-  const img = require(`../../../images/projects/${image}`)
+  // const img = require(`../../../images/projects/${image}`)
+
+  console.log(image)
 
   return (
     <Wrapper>
-      <div className="row">
-        <div className="col-12 col-lg-6">
+      <Row>
+        <Col>
           <Header>
             {title}
           </Header>
@@ -79,12 +82,16 @@ const Project = ({
               View here
             </BtnAnchor>
           )}
-        </div>
-        <ImgWrapper className="col-12 col-lg-6">
-          {/* todo */}
-          <img src={img} alt={title} className="img-fluid" />
-        </ImgWrapper>
-      </div>
+        </Col>
+
+        <ColSpace />
+
+        <FlexImgWrapper>
+          <ImgWrapper>
+            <Img fluid={image.src.childImageSharp.fluid} />
+          </ImgWrapper>
+        </FlexImgWrapper>
+      </Row>
     </Wrapper>
   )
 }

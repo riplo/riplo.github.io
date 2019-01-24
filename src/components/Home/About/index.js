@@ -6,7 +6,7 @@ import { Title } from '../../Typography'
 import { SERIF } from '../../../constants/fonts'
 import { GRAY, DARK_GRAY } from '../../../constants/colors'
 import { maxWidth, PHONE, TABLET } from '../../../constants/widths'
-import { Container } from '../../Grid'
+import { Container, Row, Col, ColSpace } from '../../Grid'
 
 const Num = s.div`
   font-size: 2rem;
@@ -41,8 +41,8 @@ const StyledTitle = s(Title)`
 export default () => (
   <section id="about">
     <Container>
-      <div className="row">
-        <div className="col-12 col-md-8 col-lg-9">
+      <Row>
+        <Col>
           <StyledTitle>More about us</StyledTitle>
           <Bullet>
             <Num>1.</Num>
@@ -70,11 +70,14 @@ export default () => (
               in touch.
             </p>
           </Bullet>
-        </div>
-        <div className="col-4 offset-4 offset-md-0 col-md-4 col-lg-3">
+        </Col>
+
+        <ColSpace />
+
+        <Col offsetSm={4} sm={4} offsetMd={0} lg={3}>
           <AboutImg />
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Container>
   </section>
 )

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import fetch from 'unfetch'
 
 import { Textarea, Input, SubmitBtn } from '../Forms'
+import { Col, ColSpace, Row } from '../Grid'
 import { ErrorMessage, SuccessMessage } from '../Message'
 
 const FORMSPREE_URL = 'https://formspree.io/cameroncabo@gmail.com'
@@ -152,8 +153,8 @@ class Contact extends Component {
         ) : (
           <form id="contact-form" onSubmit={this.handleSubmit}>
             <div id="contact-page-message"></div>
-            <div className="row">
-              <div className="col-12 col-md-6">
+            <Row>
+              <Col>
                 <Input
                   type="text"
                   name="firstName"
@@ -163,8 +164,11 @@ class Contact extends Component {
                   value={firstName}
                   onChange={this.handleChange}
                 />
-              </div>
-              <div className="col-12 col-md-6">
+              </Col>
+
+              <ColSpace />
+
+              <Col>
                 <Input
                   type="text"
                   name="lastName"
@@ -173,8 +177,8 @@ class Contact extends Component {
                   value={lastName}
                   onChange={this.handleChange}
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
 
             <Input
               type="email"

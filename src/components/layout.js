@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import s from 'styled-components'
 
-// TODO write about each project in its own page
-// TODO get rid of bootstrap
-
 import Header from './Header'
 import ContactModal from './ContactModal'
 import Footer from './Footer'
