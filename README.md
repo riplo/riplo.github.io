@@ -14,14 +14,10 @@ A driven group of student developers.
 
 * Production build hosted on `master` branch
 * Development conducted on `develop` branch
-* To push new build, go to master and perform the following sequence of commands:
+* To push new build to master, run:
 
 ```
-$ git checkout master
-$ git merge develop
-$ git push -u origin master --force
 $ yarn deploy
-$ git checkout develop
 ```
 
 ----------------------------------------
