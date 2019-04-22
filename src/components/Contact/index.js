@@ -5,7 +5,7 @@ import { Textarea, Input, SubmitBtn } from '../Forms'
 import { Col, ColSpace, Row } from '../Grid'
 import { ErrorMessage, SuccessMessage } from '../Message'
 
-const FORMSPREE_URL = 'https://formspree.io/ccabo@wharton.upenn.edu'
+const FORMSPREE_URL = 'https://formspree.io/ccabo@seas.upenn.edu'
 
 const isValidEmail = email => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ // eslint-disable-line
