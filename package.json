@@ -2,7 +2,7 @@
   "name": "riplo.github.io",
   "private": false,
   "description": "A driven group of student developers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Cameron Cabo <cameroncabo@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
@@ -24,14 +24,20 @@
     "unfetch": "^4.0.1"
   },
   "keywords": [
-    "gatsby"
+    "riplo",
+    "riploio",
+    "freelance",
+    "cameron",
+    "cabo",
+    "adam",
+    "ripley"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "dev": "yarn develop",
-    "deploy": "gatsby build && gh-pages -d public -b production",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
