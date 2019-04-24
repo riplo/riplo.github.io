@@ -5,7 +5,7 @@ import { Textarea, Input, SubmitBtn } from '../Forms'
 import { Col, ColSpace, Row } from '../Grid'
 import { ErrorMessage, SuccessMessage } from '../Message'
 
-const FORMSPREE_URL = 'https://formspree.io/ccabo@seas.upenn.edu'
+const FORMCARRY_URL = 'https://formcarry.com/s/IJYk1JlscCS'
 
 const isValidEmail = email => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ // eslint-disable-line
@@ -54,23 +54,21 @@ class Contact extends Component {
       firstName,
       lastName,
       email,
-      subject,
       body,
     } = this.state
 
     const reqBody = {
-      _subject: subject,
-      firstName,
-      lastName,
+      name: firstName,
+      surname: lastName,
       email,
-      subject,
-      body,
+      message: body,
     }
 
-    fetch(FORMSPREE_URL, {
+    fetch(FORMCARRY_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
       body: JSON.stringify(reqBody),
     })
